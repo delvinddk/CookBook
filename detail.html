@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recipe Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800">
+  <main class="max-w-2xl mx-auto p-6">
+    <div id="recipeDetail">
+      <p>Loading...</p>
+    </div>
+  </main>
+
+  <script>
+    async function loadRecipe() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+
+      if (!id) {
+        document.getElementById("recipeDetail").innerHTML = "<p class='text-red-500'>No recipe ID provided.</p>";
+        return;
+      }
+
+      try {
+        const res = await fetch(`http://localhost:3000/recipes/${id}`);
+        const recipe = await res.json();
+
+        document.getElementById("recipeDetail").innerHTML = `
+          <h1 class="text-3xl font-bold mb-4">${recipe.name}</h1>
+          <img src="${recipe.image}" class="w-full h-64 object-cover rounded mb-4" alt="${recipe.name}" />
+          <div class="mb-4">
+            <span class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">${recipe.type}</span>
+            <span class="inline-block ml-2 text-sm text-gray-500">${recipe.time}</span>
+          </div>
+          <p class="text-gray-600 mb-4">${recipe.description}</p>
+          <h3 class="font-bold mb-2">Ingredients</h3>
+          <ul class="list-disc list-inside mb-4">
+            ${recipe.ingredients.map(i => `<li>${i}</li>`).join("")}
+          </ul>
+          <h3 class="font-bold mb-2">Steps</h3>
+          <p>${recipe.steps}</p>
+          <div class="mt-6 text-sm text-gray-500">Recipe by ${recipe.author} - Rating: ${recipe.rating}</div>
+        `;
+      } catch (err) {
+        document.getElementById("recipeDetail").innerHTML = "<p class='text-red-500'>Failed to load recipe.</p>";
+      }
+    }
+
+    loadRecipe();
+  </script>
+</body>
+</html>

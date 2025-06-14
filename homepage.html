@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CookBook - Discover & Share Recipes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#FF6B6B',
+secondary: '#4ECDC4'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+.recipe-card:hover { transform: translateY(-4px); }
+.recipe-card { transition: transform 0.3s ease; }
+</style>
+</head>
+<body class="bg-white min-h-screen">
+<header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+<div class="container mx-auto px-4 h-16 flex items-center justify-between">
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">CookBook</a>
+<nav class="hidden md:flex items-center space-x-8">
+<a href="browse.html" class="text-gray-900 hover:text-primary">Browse</a>
+<a href="add.html" class="text-gray-900 hover:text-primary">Add Recipe</a>
+<a href="favorite.html" class="text-gray-900 hover:text-primary">Favorites</a>
+<a href="account.html" class="text-gray-900 hover:text-primary">Acount</a>
+</nav>
+<div class="flex items-center space-x-6">
+<div class="relative">
+<!-- Container -->
+<div class="max-w-xl mx-auto px-4 py-6">
+  <!-- Flex Row for Search + Icon -->
+  <div class="flex items-center justify-between mb-4">
+    
+    <!-- Search + Account Icon Row -->
+<div class="flex items-center justify-between px-4 py-4">
+  
+<!-- Wrapper with some vertical padding -->
+<div class="px-4 pt-8 relative max-w-xl mx-auto">
+
+  <!-- Search Bar + Icon (in the same row) -->
+  <div class="flex items-center justify-between mb-2">
+    
+    <!-- Search Bar -->
+    <div class="relative w-full max-w-sm">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search Dessert recipes..."
+        class="pl-10 pr-4 py-2 w-full rounded-full border-none bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm"
+      />
+      <div class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+        <i class="ri-search-line"></i>
+      </div>
+    </div>
+
+    <!-- Account Button -->
+    <button
+      onclick="window.location.href='account.html'"
+      class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 ml-4"
+    >
+      <i class="ri-user-line text-gray-700 text-xl"></i>
+    </button>
+  </div>
+
+  <!-- Search Result Dropdown -->
+  <div id="recipeList" class="absolute mt-2 w-full max-w-sm bg-white rounded-xl shadow-md p-4 space-y-2 hidden z-50">
+  <a href="tropical-acai-bowl.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Acai Bowl</a>
+  <a href="Avocado Toast with Poached Egg.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Avocado Toast</a>
+  <a href="Banana pudding.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Banana Pudding</a>
+  <a href="Beans Bourguignon.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Beans Bourguignon</a>
+  <a href="Fluffy Blueberry Pancakes.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Blueberry Pancake</a>
+  <a href="Cream Cajun Chicken.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Cajun Chicken</a>
+  <a href="Carrot Cake.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Carrot Cake</a>
+  <a href="Creamy Garlic Parmesan Pasta.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Creamy Pasta</a>
+  <a href="Chocolate Cupcakes.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Cupcakes</a>
+  <a href="Steam Fish Vegetables.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Fish Vegetables</a>
+  <a href="Egg Fried Rice.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Fried Rice</a>
+  <a href="Ham slices with Potatoes.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Ham Slice</a>
+  <a href="Kung Pao Cauliflower.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Kung Pao Cauliflower</a>
+  <a href="strawberry pretzel Cake.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">strawberry pretzel cake</a>
+  <a href="Mussels Clam Pot.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Mussels</a>
+  <a href="Rib Eye steak with Mashed potatoes.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Ribeye</a>
+  <a href="Artisan Sourdough Bread.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Sourdough</a>
+  <a href="Teriyaki Chicken Stir Fry.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Teriyaki chicken</a>
+  <a href="Vegan Poaches Egg.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Vegan poach egg</a>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-16">
+<section class="relative h-[600px] flex items-center" style="background-image: url('https://readdy.ai/api/search-image?query=modern%20minimalist%20kitchen%20interior%20with%20warm%20natural%20lighting%2C%20soft%20shadows%2C%20and%20cooking%20ingredients%20artistically%20arranged%20on%20a%20marble%20countertop%2C%20creating%20an%20inviting%20and%20professional%20atmosphere%20for%20cooking&width=1920&height=600&seq=1&orientation=landscape'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-black/40"></div>
+<div class="container mx-auto px-4 relative z-10">
+<div class="max-w-2xl">
+<h1 class="text-5xl font-bold text-white mb-6">Discover & Share Your Culinary Masterpieces</h1>
+<p class="text-xl text-white/90 mb-8">Join our community of passionate home chefs. Find inspiration, share your recipes, and explore a world of flavors.</p>
+<div class="flex space-x-4">
+<button onclick="window.location.href='browse.html'" class="!rounded-button bg-primary text-white px-8 py-3 font-medium hover:bg-primary/90">Explore Recipes</button>
+<button onclick="window.location.href='add.html'" class="rounded-lg bg-white text-gray-900 px-8 py-3 font-medium hover:bg-gray-50 transition">Share Recipe</button>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="flex justify-between items-center mb-10">
+<h2 class="text-3xl font-bold text-gray-900">Featured Recipes</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<article class="recipe-card bg-white rounded-lg overflow-hidden shadow-sm">
+<div class="relative h-64">
+<img src="https://readdy.ai/api/search-image?query=gourmet%20pasta%20dish%20with%20fresh%20herbs%20and%20parmesan%2C%20beautifully%20plated%20on%20a%20rustic%20ceramic%20plate%20with%20soft%20natural%20lighting%20and%20shallow%20depth%20of%20field&width=400&height=300&seq=2&orientation=landscape" class="w-full h-full object-cover" alt="Italian Pasta">
+<button class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-white/90 rounded-full hover:bg-white">
+<i class="ri-heart-line text-primary"></i>
+</button>
+</div>
+<div class="p-6">
+<div class="flex items-center space-x-2 mb-2">
+<span class="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">Italian</span>
+<span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">30 min</span>
+</div>
+<a href="Creamy Garlic Parmesan Pasta.html" data-readdy="true" class="group">
+<h3 class="text-xl font-bold text-gray-900 mb-2">Creamy Garlic Parmesan Pasta</h3></a>
+<p class="text-gray-600 text-sm mb-4">A rich and creamy pasta dish with perfectly al dente noodles tossed in a silky garlic parmesan sauce.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+<i class="ri-user-line text-gray-600"></i>
+</div>
+<span class="text-sm text-gray-600">by Chef Michael</span>
+</div>
+<div class="flex items-center space-x-1 text-yellow-400">
+<i class="ri-star-fill"></i>
+<span class="text-sm text-gray-600">4.8</span>
+</div>
+</div>
+</div>
+</article>
+<article class="recipe-card bg-white rounded-lg overflow-hidden shadow-sm">
+<div class="relative h-64">
+<img src="https://readdy.ai/api/search-image?query=colorful%20asian%20stir%20fry%20with%20vibrant%20vegetables%20and%20glazed%20chicken%2C%20served%20in%20a%20modern%20black%20bowl%20with%20chopsticks%2C%20professional%20food%20photography%20lighting&width=400&height=300&seq=3&orientation=landscape" class="w-full h-full object-cover" alt="Asian Stir Fry">
+<button class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-white/90 rounded-full hover:bg-white">
+<i class="ri-heart-line text-primary"></i>
+</button>
+</div>
+<div class="p-6">
+<div class="flex items-center space-x-2 mb-2">
+<span class="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">Asian</span>
+<span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">25 min</span>
+</div>
+<a href="Teriyaki Chicken Stir Fry.html" data-readdy="true" class="group">
+<h3 class="text-xl font-bold text-gray-900 mb-2">Teriyaki Chicken Stir Fry</h3></a>
+<p class="text-gray-600 text-sm mb-4">Quick and flavorful stir-fried chicken with crisp vegetables in a homemade teriyaki sauce.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+<i class="ri-user-line text-gray-600"></i>
+</div>
+<span class="text-sm text-gray-600">by Chef Sarah</span>
+</div>
+<div class="flex items-center space-x-1 text-yellow-400">
+<i class="ri-star-fill"></i>
+<span class="text-sm text-gray-600">4.7</span>
+</div>
+</div>
+</div>
+</article>
+<article class="recipe-card bg-white rounded-lg overflow-hidden shadow-sm">
+<div class="relative h-64">
+<img src="https://readdy.ai/api/search-image?query=rustic%20homemade%20bread%20loaf%20with%20crispy%20crust%20and%20perfect%20scoring%2C%20dusted%20with%20flour%20on%20a%20wooden%20board%20with%20warm%20directional%20lighting&width=400&height=300&seq=4&orientation=landscape" class="w-full h-full object-cover" alt="Artisan Bread">
+<button class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-white/90 rounded-full hover:bg-white">
+<i class="ri-heart-line text-primary"></i>
+</button>
+</div>
+<div class="p-6">
+<div class="flex items-center space-x-2 mb-2">
+<span class="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">Desserts</span>
+<span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">3 hrs</span>
+</div>
+<a href="Artisan Sourdough Bread.html" data-readdy="true" class="group">
+<h3 class="text-xl font-bold text-gray-900 mb-2">Artisan Sourdough Bread</h3></a>
+<p class="text-gray-600 text-sm mb-4">Classic sourdough bread with a perfectly crispy crust and soft, chewy interior.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+<i class="ri-user-line text-gray-600"></i>
+</div>
+<span class="text-sm text-gray-600">by Chef David</span>
+</div>
+<div class="flex items-center space-x-1 text-yellow-400">
+<i class="ri-star-fill"></i>
+<span class="text-sm text-gray-600">4.9</span>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="py-16">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Popular Categories</h2>
+<p class="text-gray-600">Explore our most loved recipe collections</p>
+</div>
+<div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-4 gap-8">
+<a href="Main-dish.html" data-readdy="true" class="group">
+<div class="aspect-square rounded-lg overflow-hidden relative">
+<img src="https://readdy.ai/api/search-image?query=colorful%20asian%20dishes%20including%20dumplings%2C%20noodles%2C%20and%20stir-fries%20arranged%20on%20traditional%20serving%20plates&width=300&height=300&seq=6&orientation=squarish" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Asian">
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<span class="text-white font-medium text-lg">Main Dishes</span>
+</div>
+</div>
+</a>
+<a href="vegetarian.html" class="group">
+<div class="aspect-square rounded-lg overflow-hidden relative">
+<img src="https://readdy.ai/api/search-image?query=healthy%20vegetarian%20dishes%20with%20fresh%20vegetables%2C%20grains%2C%20and%20legumes%2C%20styled%20for%20food%20photography&width=300&height=300&seq=8&orientation=squarish" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Vegetarian">
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<span class="text-white font-medium text-lg">Vegetarian</span>
+</div>
+</div>
+</a>
+<a href="dessert.html" class="group">
+<div class="aspect-square rounded-lg overflow-hidden relative">
+<img src="https://readdy.ai/api/search-image?query=decadent%20desserts%20including%20chocolate%20cakes%2C%20pastries%2C%20and%20ice%20cream%20with%20elegant%20plating&width=300&height=300&seq=9&orientation=squarish" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Desserts">
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<span class="text-white font-medium text-lg">Desserts</span>
+</div>
+</div>
+</a>
+<a href="breakfast.html" data-readdy="true" class="group">
+<div class="aspect-square rounded-lg overflow-hidden relative">
+<img src="https://readdy.ai/api/search-image?query=healthy%20smoothie%20bowls%20and%20breakfast%20items%20with%20fresh%20fruits%20and%20granola%2C%20bright%20and%20colorful%20presentation&width=300&height=300&seq=10&orientation=squarish" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Breakfast">
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<span class="text-white font-medium text-lg">Breakfast</span>
+</div>
+</div>
+</a>
+</div>
+</div>
+</section>
+<section class="bg-gray-50 py-16">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="text-3xl font-bold text-gray-900 mb-6">Join Our Cooking Community</h2>
+<p class="text-gray-600 mb-8">Get weekly recipes, cooking tips, and more delivered straight to your inbox.</p>
+<form class="flex gap-4 max-w-md mx-auto">
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-gray-900 text-gray-400 py-12">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<a href="#" class="text-2xl font-['Pacifico'] text-white mb-4 block">CookBook</a>
+<p class="text-sm">Discover, create, and share delicious recipes with food lovers around the world.</p>
+</div>
+<div>
+<h3 class="text-white font-medium mb-4">Quick Links</h3>
+<ul class="space-y-2">
+<li><a href="homepage.html" class="hover:text-white">Home</a></li>
+<li><a href="browse.html" class="hover:text-white">Browse Recipes</a></li>
+<li><a href="add.html" class="hover:text-white">Add Recipe</a></li>
+<li><a href="favorite.html" class="hover:text-white">Favorites</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-white font-medium mb-4">Categories</h3>
+<ul class="space-y-2">
+<li><a href="breakfast.html" class="hover:text-white">Breakfast</a></li>
+<li><a href="Main-dish.html" class="hover:text-white">Main Dishes</a></li>
+<li><a href="dessert.html" class="hover:text-white">Desserts</a></li>
+<li><a href="vegan.html" class="hover:text-white">Vegetarian</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-white font-medium mb-4">Connect</h3>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700">
+<i class="ri-instagram-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700">
+<i class="ri-youtube-line"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-12 pt-8 text-sm text-center">
+<p>&copy; 2025 CookBook. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const favoriteButtons = document.querySelectorAll('.recipe-card button');
+favoriteButtons.forEach(button => {
+button.addEventListener('click', function(e) {
+e.preventDefault();
+const icon = button.querySelector('i');
+if (icon.classList.contains('ri-heart-line')) {
+icon.classList.remove('ri-heart-line');
+icon.classList.add('ri-heart-fill');
+} else {
+icon.classList.remove('ri-heart-fill');
+icon.classList.add('ri-heart-line');
+}
+});
+});
+});
+</script>
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const recipeList = document.getElementById('recipeList');
+  const links = recipeList.querySelectorAll('a');
+
+  searchInput.addEventListener('input', () => {
+    const value = searchInput.value.toLowerCase();
+
+    if (value === '') {
+      recipeList.classList.add('hidden');
+    } else {
+      recipeList.classList.remove('hidden');
+      links.forEach(link => {
+        const text = link.textContent.toLowerCase();
+        link.style.display = text.includes(value) ? 'block' : 'none';
+      });
+    }
+  });
+
+  searchInput.addEventListener('focus', () => {
+    if (searchInput.value.trim() !== '') {
+      recipeList.classList.remove('hidden');
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!searchInput.contains(e.target) && !recipeList.contains(e.target)) {
+      recipeList.classList.add('hidden');
+    }
+  });
+</script>
+
+</body>
+</html>

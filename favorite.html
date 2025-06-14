@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Favorites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>const slugToTitle = {
+  "fried-rice": "Egg Fried Rice",
+  "Ham-slice": "Ham slices with Potatoes",
+  "acai_bowl": "Tropical Acai Bowl",
+  "cajun-chicken": "Cream Cajun Chicken",
+  "mussels": "Mussels Clam Pot",
+  "ribeye": "Rib Eye steak with Mashed potatoes",
+  "fish-vegetables": "Steam Fish Vegetables",
+  "Carrot-cake": "Carrot Cake",
+  "strawberry-pretzel-cake": "strawberry pretzel Cake",
+  "Banana-pudding": "Banana pudding",
+  "Cupcakes": "Chocolate Cupcakes",
+  "Avocado-toast": "Avocado Toast with Poached Egg",
+  "Beans-Bourguignon": "Beans Bourguignon",
+  "vegan-poach-egg": "Vegan Poaches Egg",
+  "Kung-Pao-Cauliflower": "Kung Pao Cauliflower",
+  "creamy-pasta": "Creamy Garlic Parmesan Pasta",
+  "teriyaki-chicken": "Teriyaki Chicken Stir Fry",
+  "sourdough": "Artisan Sourdough Bread",
+  "blueberry_pancake": "Fluffy Blueberry Pancakes"
+};
+</script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF6B6B',
+            secondary: '#4ECDC4'
+          },
+          borderRadius: {
+            'none': '0px',
+            'sm': '4px',
+            DEFAULT: '8px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '20px',
+            '2xl': '24px',
+            '3xl': '32px',
+            'full': '9999px',
+            'button': '8px'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :where([class^="ri-"])::before { content: "\f3c2"; }
+    .recipe-card:hover { transform: translateY(-4px); }
+    .recipe-card { transition: transform 0.3s ease; }
+  </style>
+</head>
+<body class="bg-white min-h-screen">
+<header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+  <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+    <a href="#" class="text-2xl font-['Pacifico'] text-primary">CookBook</a>
+    <nav class="hidden md:flex items-center space-x-8">
+      <a href="homepage.html" class="text-gray-900 hover:text-primary">Home</a>
+      <a href="browse.html" class="text-gray-900 hover:text-primary">Browse</a>
+      <a href="add.html" class="text-gray-900 hover:text-primary">Add Recipe</a>
+      <a href="account.html" class="text-gray-900 hover:text-primary">Account</a>
+    </nav>
+    <div class="flex items-center space-x-6">
+      <div class="relative">
+    </div>
+  </div>
+</header>
+
+<main class="bg-gray-50 p-6 pt-20">
+  <h1 class="text-3xl font-bold mb-6 pl-4">Your Favorite Dishes</h1>
+  <div id="favorites-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4 md:px-6 lg:px-8"></div>
+</main>
+
+<section class="bg-gray-50 py-16">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Join Our Cooking Community</h2>
+      <p class="text-gray-600 mb-8">Get weekly recipes, cooking tips, and more delivered straight to your inbox.</p>
+      <form class="flex gap-4 max-w-md mx-auto">
+        <!-- Newsletter form goes here -->
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-gray-900 text-gray-400 py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <a href="#" class="text-2xl font-['Pacifico'] text-white mb-4 block">CookBook</a>
+        <p class="text-sm">Discover, create, and share delicious recipes with food lovers around the world.</p>
+      </div>
+      <div>
+        <h3 class="text-white font-medium mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li><a href="homepage.html" class="hover:text-white">Home</a></li>
+          <li><a href="browse.html" class="hover:text-white">Browse Recipes</a></li>
+          <li><a href="add.html" class="hover:text-white">Add Recipe</a></li>
+          <li><a href="favorite.html" class="hover:text-white">Favorites</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-medium mb-4">Categories</h3>
+        <ul class="space-y-2">
+          <li><a href="breakfast.html" class="hover:text-white">Breakfast</a></li>
+          <li><a href="Main-dish.html" class="hover:text-white">Main Dishes</a></li>
+          <li><a href="dessert.html" class="hover:text-white">Desserts</a></li>
+          <li><a href="vegetarian.html" class="hover:text-white">Vegetarian</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-medium mb-4">Connect</h3>
+        <div class="flex space-x-4">
+          <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700"><i class="ri-facebook-fill"></i></a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700"><i class="ri-instagram-line"></i></a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700"><i class="ri-youtube-line"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 mt-12 pt-8 text-sm text-center">
+      <p>&copy; 2025 CookBook. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const container = document.getElementById('favorites-container');
+  let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+  function titleToSlug(title) {
+    return title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]/g, '');
+  }
+
+  function renderFavorites() {
+    container.innerHTML = '';
+
+    if (favorites.length === 0) {
+      container.innerHTML = "<p class='text-gray-500'>No favorite dishes yet.</p>";
+      return;
+    }
+
+    favorites.forEach(recipe => {
+  const slug = recipe.slug || titleToSlug(recipe.title); 
+  const fileName = slugToTitle[slug] ? slugToTitle[slug] + '.html' : slug + '.html';
+
+  const card = document.createElement('article');
+  card.className = "recipe-card bg-white rounded-lg overflow-hidden shadow-sm";
+
+  card.innerHTML = `
+    <div class="relative h-48">
+      <img src="${recipe.image}" class="w-full h-full object-cover" alt="${recipe.title}">
+      <button class="remove-favorite absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-white/90 rounded-full hover:bg-white" data-slug="${slug}">
+        <i class="ri-heart-fill text-red-500"></i>
+      </button>
+    </div>
+    <div class="p-6">
+      <div class="flex items-center space-x-2 mb-2">
+        <span class="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">${recipe.category}</span>
+        <span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">${recipe.time}</span>
+      </div>
+       <a href="${fileName}" class="group hover:underline">
+      <h3 class="text-lg font-bold text-gray-900 mb-2">${recipe.title}</h3>
+     </a>
+      <p class="text-gray-600 text-sm mb-4">${recipe.description}</p>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+            <i class="ri-user-line text-gray-600"></i>
+          </div>
+          <span class="text-sm text-gray-600">by ${recipe.author}</span>
+        </div>
+        <div class="flex items-center space-x-1 text-yellow-400">
+          <i class="ri-star-fill"></i>
+        </div>
+      </div>
+    </div>
+  `;
+  container.appendChild(card);
+});
+    document.querySelectorAll('.remove-favorite').forEach(button => {
+      button.addEventListener('click', function () {
+        const slug = this.getAttribute('data-slug');
+        favorites = favorites.filter(item => (item.slug || titleToSlug(item.title)) !== slug);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        renderFavorites(); // Refresh the UI
+      });
+    });
+  }
+
+  renderFavorites();
+</script>
+
+</body>
+</html>

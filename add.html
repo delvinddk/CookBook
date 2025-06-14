@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Recipe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body class="relative min-h-screen bg-cover bg-center" style="background-image: url('https://res.cloudinary.com/ddhtptfuo/image/upload/v1748798477/samples/coffee.jpg');">
+
+  <!-- Blur Overlay -->
+  <div class="fixed inset-0 bg-white/30 backdrop-blur-sm z-0"></div>
+
+  <div class="relative z-10">
+    <!-- Header -->
+    <header class="text-center py-6">
+      <h1 class="text-4xl font-bold text-gray-800">Add New Recipe</h1>
+      <nav class="mt-4 space-x-6">
+        <a href="homepage.html" class="text-black-600 font-medium">Home</a>
+        <a href="browse.html" class="text-black-600 font-medium">Browse</a>
+        <a href="favorite.html" class="text-black-600 font-medium">Favorites</a>
+        <a href="account.html" class="text-black-600  font-medium">Account</a>
+      </nav>
+    </header>
+
+    <!-- Form Box -->
+    <main class="relative max-w-xl mx-auto bg-white bg-opacity-90 rounded-2xl shadow-xl p-8 mt-6 mb-12">
+      <!-- Back Button -->
+      <a href="homepage.html" class="absolute top-4 left-4 w-10 h-10 flex items-center justify-center hover:bg-gray-200 rounded-full transition">
+        <i class="ri-arrow-left-s-line text-2xl text-gray-700"></i>
+      </a>
+
+      <!-- Form -->
+      <form id="recipeForm" class="space-y-6 pt-12">
+        <!-- Recipe Name -->
+        <div>
+          <label for="name" class="block font-semibold text-gray-700 mb-1">Recipe Name</label>
+          <input type="text" id="name" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"/>
+        </div>
+
+        <!-- Type -->
+        <div>
+          <label for="type" class="block font-semibold text-gray-700 mb-1">Type</label>
+          <select id="type" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <option value="Main">Main Dish</option>
+            <option value="Dessert">Dessert</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Breakfast">Breakfast</option>
+          </select>
+        </div>
+
+        <!-- Cooking Time -->
+        <div>
+          <label for="time" class="block font-semibold text-gray-700 mb-1">Cooking Time</label>
+          <input type="text" id="time" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"/>
+        </div>
+
+        <!-- Steps -->
+        <div>
+          <label for="steps" class="block font-semibold text-gray-700 mb-1">Steps</label>
+          <textarea id="steps" rows="4" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+        </div>
+
+        <!-- Image Upload -->
+        <div>
+          <label for="image" class="block font-semibold text-gray-700 mb-1">Upload Dish Image</label>
+          <input type="file" id="image" accept="image/*" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+          <img id="imagePreview" class="mt-4 w-full max-h-64 object-contain rounded-lg hidden" alt="Image Preview"/>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition">
+          Submit Recipe
+        </button>
+      </form>
+
+      <!-- Submit Message -->
+      <p id="submitMsg" class="text-center mt-4 font-semibold"></p>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("recipeForm");
+      const submitMsg = document.getElementById("submitMsg");
+      const imageInput = document.getElementById("image");
+      const imagePreview = document.getElementById("imagePreview");
+
+      // Preview selected image
+      imageInput.addEventListener("change", function () {
+        const file = this.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            imagePreview.src = e.target.result;
+            imagePreview.classList.remove("hidden");
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      // Handle form submission
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const type = document.getElementById("type").value;
+        const time = document.getElementById("time").value;
+        const steps = document.getElementById("steps").value;
+        const image = imagePreview.src;
+
+        console.log("Submitted Recipe:", { name, type, time, steps, image });
+
+        submitMsg.textContent = "🎉 Recipe submitted successfully!";
+        submitMsg.className = "text-green-600 text-center mt-4 font-semibold";
+
+        form.reset();
+        imagePreview.classList.add("hidden");
+      });
+    });
+  </script>
+</body>
+</html>

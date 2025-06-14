@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slow Cooker Loaded Potato Soup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+</head>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#FF6B6B',
+secondary: '#4ECDC4'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const favoriteButtons = document.querySelectorAll('.recipe-card button');
+favoriteButtons.forEach(button => {
+button.addEventListener('click', function(e) {
+e.preventDefault();
+const icon = button.querySelector('i');
+if (icon.classList.contains('ri-heart-line')) {
+icon.classList.remove('ri-heart-line');
+icon.classList.add('ri-heart-fill');
+} else {
+icon.classList.remove('ri-heart-fill');
+icon.classList.add('ri-heart-line');
+}
+});
+});
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const sortButton = document.getElementById('sortButton');
+const sortMenu = document.getElementById('sortMenu');
+sortButton.addEventListener('click', function() {
+sortMenu.classList.toggle('hidden');
+});
+document.addEventListener('click', function(e) {
+if (!sortButton.contains(e.target) && !sortMenu.contains(e.target)) {
+sortMenu.classList.add('hidden');
+}
+});
+});
+</script>
+<body class="bg-gray-100 font-sans">
+<header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+<div class="container mx-auto px-4 h-16 flex items-center justify-between">
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">CookBook</a>
+<nav class="hidden md:flex items-center space-x-8">
+<a href="homepage.html" class="text-gray-900 hover:text-primary">Home</a>
+<a href="browse.html" class="text-gray-900 hover:text-primary">Browse</a>
+<a href="add.html" class="text-gray-900 hover:text-primary">Add Recipe</a>
+<a href="favorite.html" class="text-gray-900 hover:text-primary">Favorites</a>
+<a href="account.html" class="text-gray-900 hover:text-primary">Acount</a>
+</nav>
+<div class="flex items-center space-x-6">
+<div class="relative">
+<input type="text" placeholder="Search recipes..." class="pl-10 pr-4 py-2 w-64 rounded-full border-none bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm">
+<div class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-search-line"></i>
+</div>
+</div>
+</button>
+</div>
+</div>
+</header>
+  <div class="max-w-7xl mx-auto p-4 grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <!-- Left (Main Content) -->
+    <div class="lg:col-span-2 space-y-6 pt-16 pb-16">
+      <h1 class="text-3xl font-bold text-gray-800">Ham slices with Potatoes</h1>
+      <img src="https://res.cloudinary.com/ddhtptfuo/image/upload/v1748690009/OIP_jefgz5.jpg" alt="Dish Image" class="w-[650px] h-[500px] object-cover rounded-lg">
+      <div>
+        <h2 class="text-xl font-semibold">Ingredients</h2>
+        <ul class="list-disc list-inside space-y-1 mt-2 text-gray-700">
+          <li>5 slices of ham or Canadian bacon</li>
+          <li>2 medium-sized potatoes</li>
+          <li>2 tbsp olive oil (for potatoes)</li>
+          <li>1 tbsp butter or oil (for egg and ham)</li>
+          <li>1 spoon Salt and pepper </li>
+          <li>1 large egg</li>
+          <li>Optional: garlic powder, paprika, or herbs for seasoning the potatoes</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-xl font-semibold mt-6">Instructions</h2>
+        <ol class="list-decimal list-outside pl-6 mt-2 space-y-1 text-gray-700">
+          <li>slices are patted dry Ham with a paper towel to avoid excess moisture during cooking.</li>
+          <li>Heat the pan. Once the pan is hot, lay the ham slices flat in a single layer, making sure they don’t overlap.</li>
+          <li>two medium-sized potatoes and cutting them into evenly sized cubes — roughly half an inch each side.</li>
+          <li>Next, toss the dried potatoes in a bowl with olive oil, salt, and pepper. For added flavor, you may sprinkle in a touch of paprika or garlic powder. Heat a generous amount of oil in a large skillet over medium-high heat.</li>
+          <li>heating a small amount of butter or oil in a non-stick pan over medium-low heat. Crack the egg carefully into a small bowl first to check for shell pieces, then gently slide it into the hot skillet.</li>
+          <li>Once each component is cooked and still warm, assemble the dish attractively on a plate.</li>
+        </ol>
+      </div>
+      <p class="text-sm text-gray-600">By Anderson schwab's • 1 servings</p>
+    </div>
+
+    <!-- Right (Sidebar) -->
+    <div class="pt-16 pb-16 space-y-6 relative">
+      <!-- Search box -->
+      <div class="bg-white p-4 rounded shadow relative">
+        <input id="searchBox" type="text" placeholder="Keywords..." class="w-full mb-2 px-3 py-2 border border-gray-300 rounded">
+        <button id="searchButton" class="w-full bg-red-500 text-white py-2 rounded hover:bg-red-600">Search Now</button>
+
+        <!-- Recipe suggestion dropdown -->
+        <div id="recipeList" class="absolute top-full left-0 mt-2 w-full bg-white rounded shadow z-50 hidden">
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="tropical-acai-bowl.html">Acai Bowl</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="Avocado Toast with Poached Egg.html">Avocado Toast</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="Banana pudding.html">Banana Pudding</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="Beans Bourguignon.html">Beans Bourguignon</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="Fluffy Blueberry Pancakes.html">Blueberry Pancake</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="Cream Cajun Chicken.html">Cajun Chicken</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="Carrot Cake.html">Carrot Cake</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="Creamy Garlic Parmesan Pasta.html">Creamy Pasta</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="Chocolate Cupcakes.html">Cupcakes</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="Steam Fish Vegetables.html">Fish Vegetables</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="Egg Fried Rice.html">Fried Rice</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="Ham slices with Potatoes.html">Ham Slice</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="Kung Pao Cauliflower.html">Kung Pao Cauliflower</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="strawberry pretzel Cake.html">Strawberry Pretzel Cake</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="Mussels Clam Pot.html">Mussels</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="Rib Eye steak with Mashed potatoes.html">Ribeye</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="Artisan Sourdough Bread.html">Sourdough</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="Teriyaki Chicken Stir Fry.html">Teriyaki Chicken</div>
+          <div class="cursor-pointer px-4 py-2 hover:bg-gray-100 rounded" data-link="Vegan Poaches Egg.html">Vegan Poach Egg</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4">
+<a href="Main-dish.html" data-readdy="true" class="group">
+<div class="aspect-square rounded-lg overflow-hidden relative">
+<img src="https://readdy.ai/api/search-image?query=colorful%20asian%20dishes%20including%20dumplings%2C%20noodles%2C%20and%20stir-fries%20arranged%20on%20traditional%20serving%20plates&width=300&height=300&seq=6&orientation=squarish" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Asian">
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<span class="text-white font-medium text-lg">Main Dishes</span>
+</div>
+</div>
+</a>
+<a href="vegetarian.html" class="group">
+<div class="aspect-square rounded-lg overflow-hidden relative">
+<img src="https://readdy.ai/api/search-image?query=healthy%20vegetarian%20dishes%20with%20fresh%20vegetables%2C%20grains%2C%20and%20legumes%2C%20styled%20for%20food%20photography&width=300&height=300&seq=8&orientation=squarish" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Vegetarian">
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<span class="text-white font-medium text-lg">Vegetarian</span>
+</div>
+</div>
+</a>
+<a href="dessert.html" class="group">
+<div class="aspect-square rounded-lg overflow-hidden relative">
+<img src="https://readdy.ai/api/search-image?query=decadent%20desserts%20including%20chocolate%20cakes%2C%20pastries%2C%20and%20ice%20cream%20with%20elegant%20plating&width=300&height=300&seq=9&orientation=squarish" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Desserts">
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<span class="text-white font-medium text-lg">Desserts</span>
+</div>
+</div>
+</a>
+<a href="breakfast.html" data-readdy="true" class="group">
+<div class="aspect-square rounded-lg overflow-hidden relative">
+<img src="https://readdy.ai/api/search-image?query=healthy%20smoothie%20bowls%20and%20breakfast%20items%20with%20fresh%20fruits%20and%20granola%2C%20bright%20and%20colorful%20presentation&width=300&height=300&seq=10&orientation=squarish" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Breakfast">
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<span class="text-white font-medium text-lg">Breakfast</span>
+</div>
+</div>
+</a>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-lg font-semibold mb-2">Seek Another menu</h2>
+        <div class="grid grid-cols-2 gap-2">
+          <a href="strawberry pretzel Cake.html"><img src="https://res.cloudinary.com/ddhtptfuo/image/upload/v1748687036/strawberry_pretzel_b4kmwm.webp" class="rounded w-full h-40 object-cover" alt="Strawberry Pretzel"></a>
+          <a href="Cream Cajun Chicken.html"><img src="https://res.cloudinary.com/ddhtptfuo/image/upload/v1748687024/Creamy-Cajun-Chicken_vzxsny.jpg" class="rounded w-full h-40 object-cover" alt="Cajun Chicken"></a>
+          <a href="Carrot Cake.html"><img src="https://res.cloudinary.com/ddhtptfuo/image/upload/v1748686966/samples/food/dessert.jpg" class="rounded w-full h-40 object-cover" alt="Dessert"></a>
+          <a href="Mussels Clam Pot.html"><img src="https://res.cloudinary.com/ddhtptfuo/image/upload/v1748686966/samples/food/pot-mussels.jpg" class="rounded w-full h-40 object-cover" alt="Mussels"></a>
+          <a href="Vegan Poaches Egg.html"><img src="https://res.cloudinary.com/ddhtptfuo/image/upload/v1748686974/samples/breakfast.jpg" class="rounded w-full h-40 object-cover" alt="Breakfast"></a>
+          <a href="Steam Fish Vegetables.html"><img src="https://res.cloudinary.com/ddhtptfuo/image/upload/v1748686966/samples/food/fish-vegetables.jpg" class="rounded w-full h-40 object-cover" alt="Fish and Vegetables"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  const searchInput = document.getElementById('searchBox');
+  const recipeList = document.getElementById('recipeList');
+  const searchButton = document.getElementById('searchButton');
+  const recipeItems = recipeList.querySelectorAll('div');
+
+  // Show filtered results when typing
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    let hasMatch = false;
+    recipeItems.forEach(item => {
+      const match = item.textContent.toLowerCase().includes(query);
+      item.style.display = match ? 'block' : 'none';
+      if (match) hasMatch = true;
+    });
+    recipeList.classList.toggle('hidden', !hasMatch || query === '');
+  });
+
+  // Fill input with clicked suggestion
+  recipeItems.forEach(item => {
+    item.addEventListener('click', () => {
+      searchInput.value = item.textContent;
+      recipeList.classList.add('hidden');
+    });
+  });
+
+  // On Search Button Click
+  searchButton.addEventListener('click', () => {
+    const inputText = searchInput.value.toLowerCase().trim();
+    let found = false;
+    recipeItems.forEach(item => {
+      if (item.textContent.toLowerCase() === inputText) {
+        const link = item.getAttribute('data-link');
+        if (link) {
+          window.location.href = link;
+          found = true;
+        }
+      }
+    });
+
+    if (!found) {
+      alert('No matching recipe found!');
+    }
+  });
+
+  // Close suggestions when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!recipeList.contains(e.target) && e.target !== searchInput) {
+      recipeList.classList.add('hidden');
+    }
+  });
+</script>
+
+</body>
+</html>

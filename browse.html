@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cook Book</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="font-sans text-gray-900">
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#FF6B6B',
+secondary: '#4ECDC4'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+<header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+<div class="container mx-auto px-4 h-16 flex items-center justify-between">
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">CookBook</a>
+<nav class="hidden md:flex items-center space-x-8">
+<a href="homepage.html" class="text-gray-900 hover:text-primary">Home</a>
+<a href="add.html" class="text-gray-900 hover:text-primary">Add Recipe</a>
+<a href="favorite.html" class="text-gray-900 hover:text-primary">Favorites</a>
+<a href="account.html" class="text-gray-900 hover:text-primary">Acount</a>
+</nav>
+<div class="flex items-center space-x-6">
+<div class="relative">
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<!-- Hero Section -->
+<section class="relative h-[700px] overflow-hidden">
+  <!-- Blurred Background Image -->
+  <div class="absolute inset-0 bg-cover bg-center filter blur-sm scale-100" style="background-image: url('https://res.cloudinary.com/ddhtptfuo/image/upload/v1748798477/cld-sample-4.jpg');"></div>
+
+  <!-- Foreground Content -->
+  <div class="relative z-10 container mx-auto text-white px-4 h-full flex items-center">
+    <div class="container mx-auto text-black px-4">
+      <h2 class="text-4xl font-bold mb-4">It is even better than an expensive cookery book</h2>
+      <p class="mb-6 text-lg">Learn how to make your favorite restaurant's dishes</p>
+      <div class="flex max-w-xl">
+        <select id="categorySelect" class="w-full px-4 py-2 rounded-l-lg text-black">
+          <option value="">Select Category</option>
+          <option value="Main-dish.html">Main Dishes</option>
+          <option value="vegetarian.html">Vegetarian</option>
+          <option value="dessert.html">Desserts</option>
+          <option value="breakfast.html">Breakfast</option>
+        </select>
+        <button id="searchButton" class="bg-yellow-400 px-4 py-2 rounded-r-lg">🔍</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Category Section -->
+<section class="py-16">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Popular Categories</h2>
+      <p class="text-gray-600">Explore our most loved recipe collections</p>
+    </div>
+    <div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-4 gap-8">
+      <a href="Main-dish.html" class="group">
+        <div class="aspect-square rounded-lg overflow-hidden relative">
+          <img src="https://readdy.ai/api/search-image?query=colorful%20asian%20dishes%20including%20dumplings%2C%20noodles%2C%20and%20stir-fries%20arranged%20on%20traditional%20serving%20plates&width=300&height=300&seq=6&orientation=squarish" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Asian">
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <span class="text-white font-medium text-lg">Main Dishes</span>
+          </div>
+        </div>
+      </a>
+      <a href="vegetarian.html" class="group">
+        <div class="aspect-square rounded-lg overflow-hidden relative">
+          <img src="https://readdy.ai/api/search-image?query=healthy%20vegetarian%20dishes%20with%20fresh%20vegetables%2C%20grains%2C%20and%20legumes%2C%20styled%20for%20food%20photography&width=300&height=300&seq=8&orientation=squarish" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Vegetarian">
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <span class="text-white font-medium text-lg">Vegetarian</span>
+          </div>
+        </div>
+      </a>
+      <a href="dessert.html" class="group">
+        <div class="aspect-square rounded-lg overflow-hidden relative">
+          <img src="https://readdy.ai/api/search-image?query=decadent%20desserts%20including%20chocolate%20cakes%2C%20pastries%2C%20and%20ice%20cream%20with%20elegant%20plating&width=300&height=300&seq=9&orientation=squarish" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Desserts">
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <span class="text-white font-medium text-lg">Desserts</span>
+          </div>
+        </div>
+      </a>
+      <a href="breakfast.html" class="group">
+        <div class="aspect-square rounded-lg overflow-hidden relative">
+          <img src="https://readdy.ai/api/search-image?query=healthy%20smoothie%20bowls%20and%20breakfast%20items%20with%20fresh%20fruits%20and%20granola%2C%20bright%20and%20colorful%20presentation&width=300&height=300&seq=10&orientation=squarish" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Breakfast">
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <span class="text-white font-medium text-lg">Breakfast</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gray-50 py-16">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="text-3xl font-bold text-gray-900 mb-6">Join Our Cooking Community</h2>
+<p class="text-gray-600 mb-8">Get weekly recipes, cooking tips, and more delivered straight to your inbox.</p>
+<form class="flex gap-4 max-w-md mx-auto">
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-gray-900 text-gray-400 py-12">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<a href="#" class="text-2xl font-['Pacifico'] text-white mb-4 block">CookBook</a>
+<p class="text-sm">Discover, create, and share delicious recipes with food lovers around the world.</p>
+</div>
+<div>
+<h3 class="text-white font-medium mb-4">Quick Links</h3>
+<ul class="space-y-2">
+<li><a href="homepage.html" class="hover:text-white">Home</a></li>
+<li><a href="browse.html" class="hover:text-white">Browse Recipes</a></li>
+<li><a href="add.html" class="hover:text-white">Add Recipe</a></li>
+<li><a href="favorite.html" class="hover:text-white">Favorites</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-white font-medium mb-4">Categories</h3>
+<ul class="space-y-2">
+<li><a href="breakfast.html" class="hover:text-white">Breakfast</a></li>
+<li><a href="Main-dish.html" class="hover:text-white">Main Dishes</a></li>
+<li><a href="dessert.html" class="hover:text-white">Desserts</a></li>
+<li><a href="vegan.html" class="hover:text-white">Vegetarian</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-white font-medium mb-4">Connect</h3>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700">
+<i class="ri-instagram-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700">
+<i class="ri-youtube-line"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-12 pt-8 text-sm text-center">
+<p>&copy; 2025 CookBook. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+  document.getElementById('searchButton').addEventListener('click', function () {
+    const selectedCategory = document.getElementById('categorySelect').value;
+    if (selectedCategory) {
+      window.location.href = selectedCategory;
+    } else {
+      alert("Please select a category.");
+    }
+  });
+</script>
+
+</body>
+</html>

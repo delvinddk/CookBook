@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cook Book - Account Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gray-100">
+  <div class="w-full max-w-5xl h-[600px] flex shadow-lg bg-white relative">
+
+    <!-- Back Button -->
+    <a href="homepage.html" class="absolute top-4 left-4 w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-full">
+      <i class="ri-arrow-left-s-line text-2xl"></i>
+    </a>
+
+    <!-- Form Section -->
+    <div class="w-1/2 p-12 flex flex-col justify-center">
+      <div class="text-3xl font-bold mb-8 text-gray-800">Cook Book</div>
+      <h1 class="text-2xl font-semibold mb-2 text-gray-700">Account Login</h1>
+      <p class="text-sm text-gray-500 mb-6">Sign in with your email address and password.</p>
+      <form action="login.php" method="POST">
+        <div class="mb-4">
+          <label class="block text-gray-600 mb-1">Email Address</label>
+          <input type="email" name="email" placeholder="johndoe123@xyz.com" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-600 mb-1">Password</label>
+          <input type="password" name="password" placeholder="********" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+        </div>
+        <div class="flex items-center justify-between text-sm mb-4">
+          <label class="flex items-center">
+            <input type="checkbox" class="mr-2">
+            Remember me
+          </label>
+          <a href="#" class="text-green-600 hover:underline"></a>
+        </div>
+        <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 font-semibold">Sign In</button>
+      </form>
+      <p class="mt-6 text-center text-sm text-gray-600">
+        Don't have an account? <a href="signup.html" class="text-green-600 font-semibold hover:underline">Sign Up</a>
+      </p>
+    </div>
+
+    <!-- Image Section -->
+    <div class="w-1/2 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836');"></div>
+  </div>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(e.target);
+      const errorElement = document.getElementById('error-message');
+      
+      try {
+        const response = await fetch('login.php', {
+          method: 'POST',
+          body: formData
+        });
+        
+        const result = await response.text();
+        
+        if (response.ok) {
+          window.location.href = 'login.php'; // Redirect on success
+        } else {
+          errorElement.textContent = result;
+          errorElement.classList.remove('hidden');
+        }
+      } catch (error) {
+        errorElement.textContent = 'Network error. Please try again.';
+        errorElement.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

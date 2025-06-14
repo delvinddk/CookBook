@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Main Dishes Recipes - CookBook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#FF6B6B',
+secondary: '#4ECDC4'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+.recipe-card:hover { transform: translateY(-4px); }
+.recipe-card { transition: transform 0.3s ease; }
+input[type="range"]::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 16px;
+height: 16px;
+background: #FF6B6B;
+border-radius: 50%;
+cursor: pointer;
+}
+</style>
+</head>
+<body class="bg-white min-h-screen">
+<header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+<div class="container mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<a href="homepage.html" data-readdy="true" class="w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-full">
+<i class="ri-arrow-left-s-line text-xl"></i>
+</a>
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">CookBook</a>
+</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a href="homepage.html" class="text-gray-900 hover:text-primary">Home</a>
+<a href="browse.html" class="text-gray-900 hover:text-primary">Browse</a>
+<a href="add.html" class="text-gray-900 hover:text-primary">Add Recipe</a>
+<a href="favorite.html" class="text-gray-900 hover:text-primary">Favorites</a>
+<a href="account.html" class="text-gray-900 hover:text-primary">account</a>
+</nav>
+<div class="flex items-center space-x-6">
+<div class="relative">
+<!-- Container -->
+<div class="max-w-xl mx-auto px-4 py-6">
+  <!-- Flex Row for Search + Icon -->
+  <div class="flex items-center justify-between mb-4">
+    
+    <!-- Search + Account Icon Row -->
+<div class="flex items-center justify-between px-4 py-4">
+  
+<!-- Wrapper with some vertical padding -->
+<div class="px-4 pt-8 relative max-w-xl mx-auto">
+
+  <!-- Search Bar + Icon (in the same row) -->
+  <div class="flex items-center justify-between mb-2">
+    
+    <!-- Search Bar -->
+    <div class="relative w-full max-w-sm">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search Dessert recipes..."
+        class="pl-10 pr-4 py-2 w-full rounded-full border-none bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm"
+      />
+      <div class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+        <i class="ri-search-line"></i>
+      </div>
+    </div>
+
+    <!-- Account Button -->
+    <button
+      onclick="window.location.href='account.html'"
+      class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 ml-4"
+    >
+      <i class="ri-user-line text-gray-700 text-xl"></i>
+    </button>
+  </div>
+
+  <!-- Search Result Dropdown -->
+  <div id="recipeList" class="absolute mt-2 w-full max-w-sm bg-white rounded-xl shadow-md p-4 space-y-2 hidden z-50">
+  <a href="tropical-acai-bowl.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Acai Bowl</a>
+  <a href="Avocado Toast with Poached Egg.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Avocado Toast</a>
+  <a href="Banana pudding.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Banana Pudding</a>
+  <a href="Beans Bourguignon.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Beans Bourguignon</a>
+  <a href="Fluffy Blueberry Pancakes.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Blueberry Pancake</a>
+  <a href="Cream Cajun Chicken.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Cajun Chicken</a>
+  <a href="Carrot Cake.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Carrot Cake</a>
+  <a href="Creamy Garlic Parmesan Pasta.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Creamy Pasta</a>
+  <a href="Chocolate Cupcakes.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Cupcakes</a>
+  <a href="Steam Fish Vegetables.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Fish Vegetables</a>
+  <a href="Egg Fried Rice.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Fried Rice</a>
+  <a href="Ham slices with Potatoes.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Ham Slice</a>
+  <a href="Kung Pao Cauliflower.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Kung Pao Cauliflower</a>
+  <a href="strawberry pretzel Cake.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">strawberry pretzel cake</a>
+  <a href="Mussels Clam Pot.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Mussels</a>
+  <a href="Rib Eye steak with Mashed potatoes.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Ribeye</a>
+  <a href="Artisan Sourdough Bread.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Sourdough</a>
+  <a href="Teriyaki Chicken Stir Fry.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Teriyaki chicken</a>
+  <a href="Vegan Poaches Egg.html" class="block px-4 py-2 rounded-lg hover:bg-gray-100 transition">Vegan poach egg</a>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="pt-20">
+<div class="max-w-screen-xl mx-auto px-6">
+<div class="flex justify-between items-center mb-6">
+<h1 class="text-2xl font-bold text-gray-900">Main Dishes Recipes</h1>
+<div class="relative">
+<button id="sortButton" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-gray-900">
+</button>
+<div id="sortMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100 py-1">
+</div>
+</div>
+</div>
+<div class="max-w-screen-xl mx-auto px-6 pb-20">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<article class="recipe-card bg-white rounded-lg overflow-hidden shadow-sm">
+<div class="relative h-48">
+<img src="https://res.cloudinary.com/ddhtptfuo/image/upload/v1748687024/Creamy-Cajun-Chicken_vzxsny.jpg" class="w-full h-full object-cover">
+<button class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-white/90 rounded-full hover:bg-white">
+<i class="ri-heart-line text-primary"></i>
+</button>
+</div>
+<div class="p-6">
+<a href="mongodb+srv://delvindk123:delvin@cookingrecipe.ssvpvv7.mongodb.net/" data-readdy="true" class="group"></a>
+<div class="flex items-center space-x-2 mb-2">
+<span class="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">classic</span>
+<span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">60 min</span>
+</div>
+<a href="Cream Cajun Chicken.html" data-readdy="true" class="group">
+<h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:underline">Cream Cajun Chicken</h3>
+</a>
+<p class="text-gray-600 text-sm mb-4">Creamy sauce with grilled chicken with the extra flavour from cajun paste.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+<i class="ri-user-line text-gray-600"></i>
+</div>
+<span class="text-sm text-gray-600">by Amanda Alicia</span>
+</div>
+<div class="flex items-center space-x-1 text-yellow-400">
+<i class="ri-star-fill"></i>
+<span class="text-sm text-gray-600">4.6</span>
+</div>
+</div>
+</div>
+</article>
+<article class="recipe-card bg-white rounded-lg overflow-hidden shadow-sm">
+<div class="relative h-48">
+<img src="https://res.cloudinary.com/ddhtptfuo/image/upload/v1748686966/samples/food/pot-mussels.jpg" class="w-full h-full object-cover" alt="Blueberry Pancakes">
+<button class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-white/90 rounded-full hover:bg-white">
+<i class="ri-heart-line text-primary"></i>
+</button>
+</div>
+<div class="p-6">
+<div class="flex items-center space-x-2 mb-2">
+<span class="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">Classic</span>
+<span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">45 min</span>
+</div>
+<a href="Mussels Clam Pot.html" class="group">
+<h3 class="text-lg font-bold text-gray-900 mb-2">Mussels Clam Pot</h3>
+</a>
+<p class="text-gray-600 text-sm mb-4">fresh boiled mussels with some tomate soup served in the pot.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+<i class="ri-user-line text-gray-600"></i>
+</div>
+<span class="text-sm text-gray-600">by Chef Hanna</span>
+</div>
+<div class="flex items-center space-x-1 text-yellow-400">
+<i class="ri-star-fill"></i>
+<span class="text-sm text-gray-600">4.7</span>
+</div>
+</div>
+</div>
+</article>
+<article class="recipe-card bg-white rounded-lg overflow-hidden shadow-sm">
+<div class="relative h-48">
+<img src="https://res.cloudinary.com/ddhtptfuo/image/upload/v1748715240/ai-generated-grilled-ribeye-steak-steak-with-asparagus-and-mashed-potatoes-on-plate-generative-ai-photo_wmnajg.jpg" class="w-full h-full object-cover" alt="Blueberry Pancakes">
+<button class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-white/90 rounded-full hover:bg-white">
+<i class="ri-heart-line text-primary"></i>
+</button>
+</div>
+<div class="p-6">
+<div class="flex items-center space-x-2 mb-2">
+<span class="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">Classic</span>
+<span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">75 min</span>
+</div>
+<a href="Rib Eye steak with Mashed potatoes.html" class="group">
+  <h3 class="text-lg font-bold text-gray-900 mb-2">Rib Eye steak with Mashed potatoes</h3>
+</a>
+<p class="text-gray-600 text-sm mb-4">a grilled meat steak with succulent mashed potatoes and asparagus on side</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+<i class="ri-user-line text-gray-600"></i>
+</div>
+<span class="text-sm text-gray-600">by Talita Hamda</span>
+</div>
+<div class="flex items-center space-x-1 text-yellow-400">
+<i class="ri-star-fill"></i>
+<span class="text-sm text-gray-600">4.5</span>
+</div>
+</div>
+</div>
+</article>
+<article class="recipe-card bg-white rounded-lg overflow-hidden shadow-sm">
+<div class="relative h-48">
+<img src="https://res.cloudinary.com/ddhtptfuo/image/upload/v1748686966/samples/food/fish-vegetables.jpg" class="w-full h-full object-cover" alt="Acai Bowl">
+<button class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-white/90 rounded-full hover:bg-white">
+<i class="ri-heart-line text-primary"></i>
+</button>
+</div>
+<div class="p-6">
+<a href="Steam Fish Vegetables.html" data-readdy="true" class="group">
+<div class="flex items-center space-x-2 mb-2">
+<span class="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">Asia</span>
+<span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">90 min</span>
+</div>
+<h3 class="text-lg font-bold text-gray-900 mb-2">Steam Fish vegetable</h3>
+<p class="text-gray-600 text-sm mb-4">Traditional Steamed fish with autenthic flavor</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+<i class="ri-user-line text-gray-600"></i>
+</div>
+<span class="text-sm text-gray-600">by Wang shin</span>
+</div>
+<div class="flex items-center space-x-1 text-yellow-400">
+<i class="ri-star-fill"></i>
+<span class="text-sm text-gray-600">4.9</span>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="w-full bg-gray-900 text-white px-10 py-12">
+<div class="w-full max-w-screen-xl px-0 mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="md:col-span-1 -ml-4">
+  <a href="#" class="text-2xl font-['Pacifico'] text-white mb-4 block">CookBook</a>
+  <p class="text-sm">Discover, create, and share delicious recipes with food lovers around the world.</p>
+</div>
+<div>
+<h3 class="text-white font-medium mb-4">Quick Links</h3>
+<ul class="space-y-2">
+<li><a href="homepage.html" class="hover:text-white">Home</a></li>
+<li><a href="browse.html" class="hover:text-white">Browse Recipes</a></li>
+<li><a href="add.html" class="hover:text-white">Add Recipe</a></li>
+<li><a href="favorite.html" class="hover:text-white">Favorites</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-white font-medium mb-4">Categories</h3>
+<ul class="space-y-2">
+<li><a href="breakfast.html" class="hover:text-white">Breakfast</a></li>
+<li><a href="Main-dish.html" class="hover:text-white">Main Dishes</a></li>
+<li><a href="dessert.html" class="hover:text-white">Desserts</a></li>
+<li><a href="vegetarian.html" class="hover:text-white">Vegetarian</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-white font-medium mb-4">Connect</h3>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700">
+<i class="ri-instagram-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700">
+<i class="ri-youtube-line"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-12 pt-8 text-sm text-center">
+<p>&copy; 2025 CookBook. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const favoriteButtons = document.querySelectorAll('.recipe-card button');
+
+  favoriteButtons.forEach(button => {
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const icon = button.querySelector('i');
+      const card = button.closest('.recipe-card');
+
+      const title = card.querySelector('h3').innerText;
+      const image = card.querySelector('img').src;
+      const description = card.querySelector('p').innerText;
+      const author = card.querySelector('span.text-sm.text-gray-600').innerText;
+      const category = card.querySelector('span.bg-primary\\/10')?.innerText || '';
+      const time = card.querySelector('span.bg-gray-100')?.innerText || '';
+      const rating = card.querySelector('.text-yellow-400 + span')?.innerText || '0';
+
+      let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+      const existing = favorites.find(fav => fav.title === title);
+
+      if (icon.classList.contains('ri-heart-line')) {
+        // Add to favorites
+        icon.classList.remove('ri-heart-line');
+        icon.classList.add('ri-heart-fill');
+
+        if (!existing) {
+          favorites.push({ title, image, description, author, category, time, rating });
+          localStorage.setItem('favorites', JSON.stringify(favorites));
+        }
+      } else {
+        // Remove from favorites
+        icon.classList.remove('ri-heart-fill');
+        icon.classList.add('ri-heart-line');
+
+        favorites = favorites.filter(fav => fav.title !== title);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+      }
+    });
+  });
+});
+
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const sortButton = document.getElementById('sortButton');
+const sortMenu = document.getElementById('sortMenu');
+sortButton.addEventListener('click', function() {
+sortMenu.classList.toggle('hidden');
+});
+document.addEventListener('click', function(e) {
+if (!sortButton.contains(e.target) && !sortMenu.contains(e.target)) {
+sortMenu.classList.add('hidden');
+}
+});
+});
+</script>
+
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const recipeList = document.getElementById('recipeList');
+  const links = recipeList.querySelectorAll('a');
+
+  searchInput.addEventListener('input', () => {
+    const value = searchInput.value.toLowerCase();
+
+    if (value === '') {
+      recipeList.classList.add('hidden');
+    } else {
+      recipeList.classList.remove('hidden');
+      links.forEach(link => {
+        const text = link.textContent.toLowerCase();
+        link.style.display = text.includes(value) ? 'block' : 'none';
+      });
+    }
+  });
+
+  searchInput.addEventListener('focus', () => {
+    if (searchInput.value.trim() !== '') {
+      recipeList.classList.remove('hidden');
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!searchInput.contains(e.target) && !recipeList.contains(e.target)) {
+      recipeList.classList.add('hidden');
+    }
+  });
+</script>
+</body>
+</html>
